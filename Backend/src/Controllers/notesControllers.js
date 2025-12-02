@@ -7,6 +7,7 @@ export const getUserNotes = async (request, response) => {
         response.status(200).json(notes);
     } catch (error) {
         console.log(error);
+        response.status(500).json({ error: "Failed to fetch notes" });
     }
 }
 
@@ -40,7 +41,7 @@ export const UpdateUserNotes = async (request, response) => {
         const { title, content } = request.body;
 
         await Note.findByIdAndUpdate(request.params.id, { title, content });
-        response.status(201).json({ message: "notes updated successfully!" })
+        response.status(200).json({ message: "notes updated successfully!" })
 
     } catch (error) {
         response.status(500).json({ message: "notes did not updated!" })

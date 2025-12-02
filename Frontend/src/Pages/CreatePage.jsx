@@ -26,7 +26,7 @@ const CreatePage = () => {
       navigate("/")
     } catch (error) {
       if (error.response?.status === 429) {
-        toast.error("You coressed the limit, Try after some time", {
+        toast.error("You crossed the limit, Try after some time", {
           duration: 4000,
           icon: "@"
         })
